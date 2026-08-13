@@ -1,0 +1,277 @@
+:root {
+  --bg-a: #ffffff;
+  --bg-b: #f7f5f1;
+  --bg-c: #efede7;
+  --text-main: #2a2a2a;
+  --text-soft: #5b5b5b;
+  --line: #e8e5de;
+  --card: rgba(255, 255, 255, 0.3);
+  --header-h: 88px;
+  --radius: 18px;
+  --shadow: 0 16px 34px rgba(30, 30, 30, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif;
+  color: var(--text-main);
+  background: linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 52%, var(--bg-c) 100%);
+  min-height: 100vh;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-h);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(7px);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo-link {
+  display: inline-flex;
+  width: 50%;
+  max-width: 400px;
+  min-width: 180px;
+  margin-left: 4px;
+}
+
+.logo-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.menu-wrap {
+  position: relative;
+  margin-right: 4px;
+}
+
+.menu-btn {
+  width: 46px;
+  height: 40px;
+  border: 1px solid #ddd8cf;
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu-btn span {
+  width: 22px;
+  height: 2px;
+  background: #363636;
+  border-radius: 2px;
+}
+
+.menu-panel {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 280px;
+  max-width: calc(100vw - 24px);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  border-radius: 14px;
+  overflow: hidden;
+  display: none;
+}
+
+.menu-panel.open {
+  display: block;
+}
+
+.menu-panel a {
+  display: block;
+  padding: 12px 14px;
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid #f0ece4;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.menu-panel a:last-child {
+  border-bottom: 0;
+}
+
+.menu-panel a:hover,
+.menu-panel a:focus-visible {
+  background: #faf9f6;
+}
+
+.page {
+  padding-top: calc(var(--header-h) + 16px);
+  padding-bottom: 28px;
+}
+
+.home-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 0 18px;
+}
+
+.home-block,
+.sub-image-block {
+  width: 100vw;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid #ede9e1;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0.2;
+  transform: translateY(80px);
+  transition: transform 0.85s ease, opacity 0.85s ease;
+}
+
+.home-block img,
+.sub-image-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sub-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 10px 20px;
+}
+
+.menu-text {
+  width: 100vw;
+  background: var(--card);
+  border: 1px solid #eee9e0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 16px;
+}
+
+.menu-title {
+  margin: 0 0 14px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border-bottom: 2px solid #e6e2d9;
+  padding-bottom: 10px;
+}
+
+.menu-item {
+  margin-bottom: 14px;
+}
+
+.menu-item:last-child {
+  margin-bottom: 0;
+}
+
+.menu-item h2,
+.menu-item h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.menu-item p {
+  margin: 0 0 6px;
+  line-height: 1.8;
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+.menu-item a {
+  color: #2f5f90;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.menu-item a:hover,
+.menu-item a:focus-visible {
+  color: #163e66;
+}
+
+.page-footer {
+  text-align: center;
+  color: #6a6a6a;
+  font-size: 14px;
+  padding: 18px 12px 26px;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding-top: calc(var(--header-h) + 24px);
+  }
+
+  .home-block {
+    width: 75vw;
+    max-width: 1080px;
+  }
+
+  .sub-image-block,
+  .menu-text {
+    width: 50vw;
+    max-width: 860px;
+  }
+
+  .menu-text {
+    padding: 26px 28px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .menu-panel a {
+    font-size: 19px;
+  }
+
+  .menu-title {
+    font-size: 24px;
+  }
+
+  .menu-item h2,
+  .menu-item h3 {
+    font-size: 21px;
+  }
+
+  .menu-item p {
+    font-size: 19px;
+  }
+
+  .page-footer {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-block,
+  .sub-image-block {
+    transition: none;
+  }
+}
